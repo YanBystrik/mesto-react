@@ -10,6 +10,7 @@
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0;
+    border: none;
     border-radius: 40%;
     box-sizing: border-box;
     transition: opacity 0.6 linear;
