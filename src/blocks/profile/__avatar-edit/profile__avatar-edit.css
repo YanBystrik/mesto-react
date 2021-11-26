@@ -16,7 +16,6 @@
     transition: opacity 0.6 linear;
     z-index: 1;
     padding: 0;
-    border: none;
     font: inherit;
     color: inherit;
 }
