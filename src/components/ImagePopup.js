@@ -1,8 +1,9 @@
 import React from "react";
 
 function ImagePopup({ card, onClose }) {
+
     return (
-        <div className={`popup popup_image ${card && "popup_opened"}`}>
+        <div className={`popup popup_image ${card && "popup_opened"}`} onClick={onClose}>
             <button className="popup__close popup__close_image" type="button" onClick={onClose}></button>
             <div className="popup__container popup__container_image">
             <img className="popup__viewer popup__viewer_image" src={card ? card.link : ''} alt={card ? card.name : ''} />

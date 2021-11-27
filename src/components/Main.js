@@ -19,7 +19,7 @@ function Main({ handleEditAvatarClick, handleEditProfileClick, handleAddPlaceCli
         .catch(err => {
             console.error(err);
         })
-    })
+    }, [])
 
     React.useEffect( () => {
         api.getCards()

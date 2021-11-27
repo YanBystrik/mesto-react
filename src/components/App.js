@@ -27,7 +27,7 @@ function App() {
     
     //Закрытие модалки на ESC
     React.useEffect(() => {
-        if (isProfilePopupOpened || isCreatePopupOpened || isAvatarPopupOpened) {
+        if (isProfilePopupOpened || isCreatePopupOpened || isAvatarPopupOpened || selectedCard) {
     
           function handleEsc(event) {
             if (event.key === 'Escape') {
@@ -41,14 +41,7 @@ function App() {
             document.removeEventListener("keydown", handleEsc)
           }
         }
-      }, [isProfilePopupOpened, isCreatePopupOpened, isAvatarPopupOpened])
-    
-      //Закрытие модалки кликом на оверлей
-      function handlePopupClick(event) {
-        if (event.target.classList.contains("popup")) {
-          closeAllPopups()
-        }
-      }
+      }, [isProfilePopupOpened, isCreatePopupOpened, isAvatarPopupOpened, selectedCard])
 
     //Отрисовка приложения
     return (
@@ -70,7 +63,7 @@ function App() {
         />
         <Footer />
 
-        <PopupWithForm name="profile" title="Редактировать профиль" onPopupClick={handlePopupClick} onClose={closeAllPopups} isOpened={isProfilePopupOpened}>
+        <PopupWithForm name="profile" title="Редактировать профиль" onClose={closeAllPopups} isOpened={isProfilePopupOpened}>
             <label className="popup__form-field">
                 <input type="text" id="name" value="" name="name" placeholder="Имя" className="popup__input popup__input_text_name" required minLength="2" maxLength="40" />
                 <span id="name-error" className="error"></span>
@@ -81,7 +74,7 @@ function App() {
             </label> 
         </PopupWithForm>
 
-        <PopupWithForm name="create" title="Новое Место" onPopupClick={handlePopupClick} onClose={closeAllPopups} isOpened={isCreatePopupOpened}>
+        <PopupWithForm name="create" title="Новое Место" onClose={closeAllPopups} isOpened={isCreatePopupOpened}>
             <label className="popup__form-field">
                 <input type="text" id="place" placeholder="Название" name="cardName" className="popup__input popup__input_text_place" minLength="2" maxLength="30" required />
                  <span id="place-error" className="error"></span>
@@ -92,7 +85,7 @@ function App() {
             </label>
         </PopupWithForm>
         
-       <PopupWithForm name="avatar" title="Обновить аватар" onPopupClick={handlePopupClick} onClose={closeAllPopups} isOpened={isAvatarPopupOpened}>
+       <PopupWithForm name="avatar" title="Обновить аватар" onClose={closeAllPopups} isOpened={isAvatarPopupOpened}>
        <    label className="popup__form-field">   
                 <input type="url" id="avatar" value="" name="avatarUrl" placeholder="Ссылка" className="popup__input popup__input_text_avatar" required /> 
                 <span id="avatar-error" className="error"></span>
