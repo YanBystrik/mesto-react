@@ -95,6 +95,9 @@ function App() {
             setCurrentUser(res);
             closeAllPopups();
         })
+        .catch(err => {
+            console.error(err);
+        })
     }
 
     //Функционал закрытия модалок на ESC
