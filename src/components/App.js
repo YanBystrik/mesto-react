@@ -41,7 +41,7 @@ function App() {
         })
     }
 
-    //Клик по лайку
+    //Клик по кнопке лайка
     function handleCardLike(card) {
         // Снова проверяем, есть ли уже лайк на этой карточке
         const isLiked = card.likes.some(i => i._id === currentUser._id);
