@@ -26,25 +26,25 @@ class Api {
     .then(this._checkResponse);
   }
 
-  updateUserInfo(name, about) {
+  updateUserInfo(data) {
     return fetch(this._baseUrl + "/users/me", {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: name,
-        about: about,
+        name: data.name,
+        about: data.about,
       }),
     })
     .then(this._checkResponse);
   }
 
-  updateCards(name, link) {
+  updateCards(data) {
     return fetch(this._baseUrl + "/cards", {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
-        name: name,
-        link: link,
+        name: data.name,
+        link: data.link,
       }),
     })
     .then(this._checkResponse);
@@ -63,7 +63,7 @@ class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        avatar: avatar,
+        avatar: avatar.avatar,
       }),
     })
     .then(this._checkResponse);
