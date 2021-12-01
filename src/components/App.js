@@ -15,7 +15,7 @@ function App() {
     const [isCreatePopupOpened, setIsCreatePopupOpened] = React.useState(false);
     const [isAvatarPopupOpened, setIsAvatarPopupOpened] = React.useState(false);
     const [selectedCard, setSelectedCard] = React.useState(null);
-    const [currentUser, setCurrentUser] = React.useState('');
+    const [currentUser, setCurrentUser] = React.useState({});
     const [cards, setCards] = React.useState([]);
 
     //Хук запроса к АПИ за изначальными картинками
@@ -50,8 +50,14 @@ function App() {
         ? api.likeDelete(card._id).then((newCard) => {
             setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
         })
+        .catch(err => {
+            console.error(err);
+        })
         : api.like(card._id).then((newCard) => {
             setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+        })
+        .catch(err => {
+            console.error(err);
         });
     }
 
@@ -59,6 +65,9 @@ function App() {
     function handleCardDelete(cardId) {
         api.removeCard(cardId).then(() => {
             setCards((state) => state.filter((c) => c._id !== cardId));
+        })
+        .catch(err => {
+            console.error(err);
         });
     }
 
