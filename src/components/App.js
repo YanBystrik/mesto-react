@@ -36,9 +36,6 @@ function App() {
             setCards([newCard, ...cards]);
             closeAllPopups();
         })
-        .catch(err => {
-            console.error(err);
-        })
     }
 
     //Клик по кнопке лайка
@@ -50,15 +47,10 @@ function App() {
         ? api.likeDelete(card._id).then((newCard) => {
             setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
         })
-        .catch(err => {
-            console.error(err);
-        })
         : api.like(card._id).then((newCard) => {
             setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
         })
-        .catch(err => {
-            console.error(err);
-        });
+        
     }
 
     //Удаление карточки

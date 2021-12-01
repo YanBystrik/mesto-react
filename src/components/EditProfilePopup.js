@@ -33,11 +33,11 @@ function EditProfilePopup({ isOpened, onClose, onPopupClick, onUpdateUser}) {
     return (
         <PopupWithForm name="profile" title="Редактировать профиль" onSubmit={handleSubmit} isOpened={isOpened} onClose={onClose} onPopupClick={onPopupClick}>
             <label className="popup__form-field">
-                <input type="text" id="name" value={name} onChange={handleChangeName} name="name" placeholder="Имя" className="popup__input popup__input_text_name" required minLength="2" maxLength="40" />
+                <input type="text" id="name" value={name || ''} onChange={handleChangeName} name="name" placeholder="Имя" className="popup__input popup__input_text_name" required minLength="2" maxLength="40" />
                 <span id="name-error" className="error"></span>
             </label> 
             <label className="popup__form-field">   
-                <input type="text" id="job" value={description} onChange={handleChangeDescription} name="about" placeholder="Вид деятельности" className="popup__input popup__input_text_job" required minLength="2" maxLength="200" />
+                <input type="text" id="job" value={description || ''} onChange={handleChangeDescription} name="about" placeholder="Вид деятельности" className="popup__input popup__input_text_job" required minLength="2" maxLength="200" />
                 <span id="job-error" className="error"></span>
             </label> 
         </PopupWithForm>
