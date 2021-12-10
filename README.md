@@ -1,3 +1,19 @@
+# Проект: Место
+Проект [Место](https://github.com/YanBystrik/mesto) портированный на React.js 
+
+## Используемые технологии:
+* React.js
+* CSS
+* JS
+
+## GH Pages
+* [__Link__](https://yanbystrik.github.io/mesto-react/)
+
+**Figma**
+
+* [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
